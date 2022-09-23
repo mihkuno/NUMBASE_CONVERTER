@@ -16,7 +16,19 @@ def dec_to_bin(dec):
 
 # Decimal to Hexadecimal
 def dec_to_hex(dec):
-    pass
+    result = []
+    while dec != 0:
+        rem = dec % 16
+        dec //= 16
+        result.append(rem)
+    result = result[::-1]
+
+    for idx, chunk in enumerate(result):
+        if chunk >= 10: 
+            # 65 is A in ascii table
+            result[idx] = chr(result[idx] % 10 + 65)
+    
+    return '0x'+''.join(result)
 
 # Decimal to Octal
 def dec_to_oct(dec):
@@ -69,7 +81,6 @@ def bin_to_hex(bin): # (priority)
     print(hexSplit, hexResult)
     return '0x'+"".join([str(e) for e in hexResult])
 
-
 # Binary to Decimal
 def bin_to_dec(bin):
     # 128  64  32  16   8   4   2   1
@@ -82,7 +93,6 @@ def bin_to_dec(bin):
             result += initial
         initial *= 2
     return result
-
 
 # Binary to Octal
 def bin_to_oct(bin):

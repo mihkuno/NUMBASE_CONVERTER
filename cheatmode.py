@@ -10,4 +10,6 @@
 
 
 # dec to bin
-print(bin(77))
+# print(bin(77))
+
+# dec to hex

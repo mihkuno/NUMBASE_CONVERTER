@@ -15,3 +15,4 @@ import convert
 
 # Convert From Decimal
 print('bin: ', convert.dec_to_bin(220))
+print('hex: ', convert.dec_to_hex(220))
