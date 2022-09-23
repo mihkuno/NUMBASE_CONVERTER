@@ -14,5 +14,6 @@ import convert
 # print('dec: ', convert.bin_to_dec('11011100'))
 
 # Convert From Decimal
-print('bin: ', convert.dec_to_bin(220))
-print('hex: ', convert.dec_to_hex(220))
+# print('bin: ', convert.dec_to_bin(220))
+# print('hex: ', convert.dec_to_hex(220))
+# print('oct: ', convert.dec_to_oct(220))

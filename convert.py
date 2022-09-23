@@ -32,7 +32,12 @@ def dec_to_hex(dec):
 
 # Decimal to Octal
 def dec_to_oct(dec):
-    pass
+    result = ''
+    while dec != 0:
+        rem = dec % 8
+        dec //= 8
+        result = str(rem) + result
+    return result
 
 # Binary to Hexadecimal
 def bin_to_hex(bin): # (priority)
