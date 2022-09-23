@@ -5,11 +5,20 @@ def hex_to_oct(hex):
 def hex_to_dec(hex):
     pass
 
-
+# Decimal to Binary
 def dec_to_bin(dec):
-    pass
+    result = ''
+    while dec != 0:
+        rem = dec % 2
+        dec //= 2
+        result = str(rem) + result
+    return result
+
+# Decimal to Hexadecimal
 def dec_to_hex(dec):
     pass
+
+# Decimal to Octal
 def dec_to_oct(dec):
     pass
 
@@ -58,23 +67,24 @@ def bin_to_hex(bin): # (priority)
             hexResult.append(hexSplit[idx])
     
     print(hexSplit, hexResult)
-    return f'0x{"".join([str(e) for e in hexResult])}'
+    return '0x'+"".join([str(e) for e in hexResult])
 
 
 # Binary to Decimal
 def bin_to_dec(bin):
     # 128  64  32  16   8   4   2   1
     # 0    0    0   0   0   0   0   0
-    total = 0
+    result = 0
     initial = 1
     for item in reversed(bin):
         item = int(item)
         if item == 1:
-            total += initial
+            result += initial
         initial *= 2
-    return total
+    return result
 
 
+# Binary to Octal
 def bin_to_oct(bin):
     # 4 2 1 | 4 2 1 | 4 2 1
     # 0 0 0   1 1 1   1 1 0 -> 76
@@ -100,10 +110,21 @@ def bin_to_oct(bin):
             exponent *= 2
         octSplit[idx] = chunkTotal
     octSplit = octSplit[::-1]
-    print(octSplit)
 
-    return f'0x{"".join([str(e) for e in octSplit])}'
+    octResult = []
+    leadingZero = True
+    for idx, chunk in enumerate(octSplit):
+       
+        # remove leading zero
+        if chunk <= 0 and leadingZero: 
+            continue
+        else: leadingZero = False
+       
+        # append number instead 
+        octResult.append(octSplit[idx])
 
+    print(octSplit, octResult)
+    return "".join([str(e) for e in octResult])
 
 
 def oct_to_dec(oct):
